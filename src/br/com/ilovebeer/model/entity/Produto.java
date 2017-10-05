@@ -6,22 +6,33 @@ import javax.persistence.*;
 @Table(name = "produto")
 public class Produto {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "produto_id", columnDefinition = "integer", length = 11)
     private int id;
+
+    @Column(name = "produto_nome", nullable = true, length = 50)
     private String nome;
+
+    @Column(name = "produto_preco", nullable = true)
     private double preco;
+
+    @Column(name = "produto_qtd", nullable = true)
     private double qtdEstoque;
+
+    @OneToOne
+    private Fornecedor fornecedor;
 
     public Produto() {
     }
 
-    public Produto(String nome, double preco) {
+    public Produto(String nome, double preco, double qtdEstoque, Fornecedor fornecedor) {
         this.nome = nome;
         this.preco = preco;
+        this.qtdEstoque = qtdEstoque;
+        this.fornecedor = fornecedor;
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "produto_id", columnDefinition = "integer", length = 11)
     public int getId() {
         return id;
     }
@@ -30,7 +41,6 @@ public class Produto {
         this.id = id;
     }
 
-    @Column(name = "produto_nome", nullable = true, length = 50)
     public String getNome() {
         return nome;
     }
@@ -39,7 +49,6 @@ public class Produto {
         this.nome = nome;
     }
 
-    @Column(name = "produto_preco", nullable = true)
     public double getPreco() {
         return preco;
     }
@@ -48,13 +57,20 @@ public class Produto {
         this.preco = preco;
     }
 
-    @Column(name = "produto_estoque", nullable = true)
     public double getQtdEstoque() {
         return qtdEstoque;
     }
 
     public void setQtdEstoque(double qtdEstoque) {
         this.qtdEstoque = qtdEstoque;
+    }
+
+    public Fornecedor getFornecedor() {
+        return fornecedor;
+    }
+
+    public void setFornecedor(Fornecedor fornecedor) {
+        this.fornecedor = fornecedor;
     }
 
 }

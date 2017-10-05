@@ -54,6 +54,7 @@ public class Main {
         produto.setNome("Cerveja Nova");
         produto.setPreco(8.00);
         produto.setQtdEstoque(500.00);
+        produto.setFornecedor(fornecedor);
 
         //Instanciando o Controller do Produto;
         ControllerProduto controllerProduto = new ControllerProduto();
@@ -62,10 +63,10 @@ public class Main {
 
         //Criando um Venda;
         Carrinho carrinho = new Carrinho();
-        carrinho.adicionarItem(new ItemCarrinho(new Produto("Cerveja Antartica B", 8.00), 12));
-        carrinho.adicionarItem(new ItemCarrinho(new Produto("Cerveja Nova Skin", 6.00), 22));
-        carrinho.adicionarItem(new ItemCarrinho(new Produto("Cerveja Itaipava", 6.00), 52));
-        carrinho = new Carrinho("17/07/2017", "09:00", carrinho.getCarrinhoList());
+        carrinho.adicionarItem(new ItemCarrinho(new Produto("Cerveja Antartica B", 500, 8.00, fornecedor), 12));
+        carrinho.adicionarItem(new ItemCarrinho(new Produto("Cerveja Nova Skin", 500, 8.00, fornecedor), 22));
+        carrinho.adicionarItem(new ItemCarrinho(new Produto("Cerveja Itaipava", 500, 8.00, fornecedor), 52));
+        carrinho = new Carrinho("17/07/2017", cliente, carrinho.getCarrinhoList());
 
         //Instanciando o Controller de Venda;
         ControllerCarrinho controllerVenda = new ControllerCarrinho();

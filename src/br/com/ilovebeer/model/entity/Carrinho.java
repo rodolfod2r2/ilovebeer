@@ -9,53 +9,61 @@ import java.util.List;
 @Table(name = "carrinho")
 public class Carrinho {
 
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "carrinho_id", columnDefinition = "integer", length = 11)
     private int id;
+
+    @Column(name = "carrinho_data")
     private String data;
-    private String hora;
+
+    @OneToOne
+    private Cliente cliente;
+
+    @OneToMany (cascade = CascadeType.PERSIST)
     private List<ItemCarrinho> carrinhoList = new ArrayList<>();
 
     public Carrinho() {
     }
 
-    public Carrinho(String data, String hora, List<ItemCarrinho> carrinhoList) {
+    public Carrinho(String data, List<ItemCarrinho> carrinhoList) {
         this.data = data;
-        this.hora = hora;
         this.carrinhoList = carrinhoList;
     }
 
+    public Carrinho(String data, Cliente cliente, List<ItemCarrinho> carrinhoList) {
+        this.data = data;
+        this.cliente = cliente;
+        this.carrinhoList = carrinhoList;
+    }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "carrinho_id", columnDefinition = "integer", length = 11)
     public int getId() {
         return id;
-    }
-
-    @Column(name = "carrinho_data")
-    public String getData() {
-        return data;
-    }
-
-    @Column(name = "carrinho_hora")
-    public String getHora() {
-        return hora;
-    }
-
-    @OneToMany (cascade = CascadeType.PERSIST)
-    public List<ItemCarrinho> getCarrinhoList() {
-        return carrinhoList;
     }
 
     public void setId(int id) {
         this.id = id;
     }
 
+    public String getData() {
+        return data;
+    }
+
     public void setData(String data) {
         this.data = data;
     }
 
-    public void setHora(String hora) {
-        this.hora = hora;
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public List<ItemCarrinho> getCarrinhoList() {
+        return carrinhoList;
     }
 
     public void setCarrinhoList(List<ItemCarrinho> carrinhoList) {
@@ -69,6 +77,4 @@ public class Carrinho {
     public void limparCarrinho(){
         carrinhoList.clear();
     }
-
-
 }
