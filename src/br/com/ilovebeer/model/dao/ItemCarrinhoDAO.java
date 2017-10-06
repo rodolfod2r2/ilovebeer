@@ -2,6 +2,8 @@ package br.com.ilovebeer.model.dao;
 
 import br.com.ilovebeer.model.entity.ItemCarrinho;
 
+import java.util.List;
+
 public class ItemCarrinhoDAO extends AbstractDAO<ItemCarrinho> {
 
     @Override
@@ -20,7 +22,7 @@ public class ItemCarrinhoDAO extends AbstractDAO<ItemCarrinho> {
     }
 
     @Override
-    public void exibirDados(ItemCarrinho itemCarrinho) {
-        super.exibirDados(itemCarrinho);
+    public List exibirDados(ItemCarrinho itemCarrinho) {
+        return super.exibirDados(itemCarrinho);
     }
 }

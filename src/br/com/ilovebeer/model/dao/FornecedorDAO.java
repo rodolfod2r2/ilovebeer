@@ -2,6 +2,8 @@ package br.com.ilovebeer.model.dao;
 
 import br.com.ilovebeer.model.entity.Fornecedor;
 
+import java.util.List;
+
 public class FornecedorDAO extends AbstractDAO<Fornecedor>{
 
     @Override
@@ -20,7 +22,7 @@ public class FornecedorDAO extends AbstractDAO<Fornecedor>{
     }
 
     @Override
-    public void exibirDados(Fornecedor fornecedor) {
-        super.exibirDados(fornecedor);
+    public List exibirDados(Fornecedor fornecedor) {
+        return super.exibirDados(fornecedor);
     }
 }

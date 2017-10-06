@@ -3,6 +3,8 @@ package br.com.ilovebeer.view;
 import br.com.ilovebeer.controller.*;
 import br.com.ilovebeer.model.entity.*;
 
+import java.util.List;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -80,6 +82,27 @@ public class Main {
             controllerItemCarrinho.salvar(carrinho.getCarrinhoList().get(i));
             i++;
         }
+
+
+        //Listando Clientes;
+        List<Cliente> clientes = controllerCliente.exibir(cliente);
+        for (Cliente item: clientes){
+            System.out.println(item.getNome());
+        }
+
+
+        //Listando Fornecedores;
+        List<Fornecedor> fornecedores = controllerFornecedor.exibir(fornecedor);
+        for (Fornecedor item: fornecedores){
+            System.out.println(item.getNome());
+        }
+
+        //Listando Produtos;
+        List<Produto> produtos = controllerProduto.exibir(produto);
+        for (Produto item: produtos){
+            System.out.println("Fornecedor :" + item.getFornecedor().getNome()+" - Produto: "+item.getNome());
+        }
+
 
     }
 }

@@ -2,6 +2,8 @@ package br.com.ilovebeer.model.dao;
 
 import br.com.ilovebeer.model.entity.Cliente;
 
+import java.util.List;
+
 public class ClienteDAO extends AbstractDAO<Cliente> {
 
     @Override
@@ -20,7 +22,7 @@ public class ClienteDAO extends AbstractDAO<Cliente> {
     }
 
     @Override
-    public void exibirDados(Cliente cliente) {
-        super.exibirDados(cliente);
+    public List exibirDados(Cliente cliente) {
+        return super.exibirDados(cliente);
     }
 }

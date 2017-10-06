@@ -1,6 +1,8 @@
 package br.com.ilovebeer.model.dao;
 
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
+import java.util.List;
 
 public abstract class AbstractDAO<E> {
 
@@ -52,7 +54,11 @@ public abstract class AbstractDAO<E> {
         }
     }
 
-    public void exibirDados(E e) {
+    public List exibirDados(E e) {
+
+        EntityManager rm = EMFactory.getInstance().createManager();
+        Query query = rm.createQuery("SELECT u FROM " + e.getClass().getSimpleName() + " u", e.getClass());
+        return query.getResultList();
 
     }
 

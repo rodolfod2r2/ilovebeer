@@ -3,6 +3,7 @@ package br.com.ilovebeer.model.dao;
 import br.com.ilovebeer.model.entity.Carrinho;
 
 import javax.persistence.Transient;
+import java.util.List;
 
 public class CarrinhoDAO extends AbstractDAO<Carrinho> {
 
@@ -23,8 +24,8 @@ public class CarrinhoDAO extends AbstractDAO<Carrinho> {
     }
 
     @Override
-    public void exibirDados(Carrinho carrinho) {
-        super.exibirDados(carrinho);
+    public List exibirDados(Carrinho carrinho) {
+        return super.exibirDados(carrinho);
     }
 
 }

@@ -3,6 +3,8 @@ package br.com.ilovebeer.controller;
 import br.com.ilovebeer.model.dao.ClienteDAO;
 import br.com.ilovebeer.model.entity.Cliente;
 
+import java.util.List;
+
 public class ControllerCliente implements InterfaceControl<Cliente> {
 
     ClienteDAO clienteDAO;
@@ -27,8 +29,8 @@ public class ControllerCliente implements InterfaceControl<Cliente> {
     }
 
     @Override
-    public void exibir(Cliente cliente) {
-        clienteDAO.exibirDados(cliente);
+    public List exibir(Cliente cliente) {
+        return clienteDAO.exibirDados(cliente);
     }
 }
 

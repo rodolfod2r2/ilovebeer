@@ -3,6 +3,8 @@ package br.com.ilovebeer.controller;
 import br.com.ilovebeer.model.dao.CarrinhoDAO;
 import br.com.ilovebeer.model.entity.Carrinho;
 
+import java.util.List;
+
 public class ControllerCarrinho implements InterfaceControl<Carrinho> {
 
     CarrinhoDAO carrinhoDAO;
@@ -27,7 +29,7 @@ public class ControllerCarrinho implements InterfaceControl<Carrinho> {
     }
 
     @Override
-    public void exibir(Carrinho carrinho) {
-
+    public List exibir(Carrinho carrinho) {
+        return carrinhoDAO.exibirDados(carrinho);
     }
 }
