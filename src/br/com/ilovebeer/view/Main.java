@@ -11,7 +11,7 @@ public class Main {
 
         //Criando um Cliente sem Polimorfismo;
         Cliente cliente = new Cliente();
-        cliente.setNome("AR");
+        cliente.setNome("Jarvis");
         cliente.setCpf("11111111111");
         cliente.setLogin("teste");
         cliente.setSenha("teste");
@@ -65,9 +65,9 @@ public class Main {
 
         //Criando um Venda;
         Carrinho carrinho = new Carrinho();
-        carrinho.adicionarItem(new ItemCarrinho(new Produto("Cerveja Antartica B", 500, 8.00, fornecedor), 12));
-        carrinho.adicionarItem(new ItemCarrinho(new Produto("Cerveja Nova Skin", 500, 8.00, fornecedor), 22));
-        carrinho.adicionarItem(new ItemCarrinho(new Produto("Cerveja Itaipava", 500, 8.00, fornecedor), 52));
+        carrinho.adicionarItem(new ItemCarrinho(new Produto("Cerveja Antartica B", 6, 8.00, fornecedor), 12));
+        carrinho.adicionarItem(new ItemCarrinho(new Produto("Cerveja Nova Skin", 6, 8.00, fornecedor), 22));
+        carrinho.adicionarItem(new ItemCarrinho(new Produto("Cerveja Itaipava", 6, 8.00, fornecedor), 52));
         carrinho = new Carrinho("17/07/2017", cliente, carrinho.getCarrinhoList());
 
         //Instanciando o Controller de Venda;
@@ -104,5 +104,23 @@ public class Main {
         }
 
 
+        //Listando Venda
+        List<Carrinho> venda = controllerVenda.exibir(carrinho);
+        ItemCarrinho itemCarrinho = new ItemCarrinho();
+        ControllerItemCarrinho controllerItemCarrinho = new ControllerItemCarrinho();
+        List<ItemCarrinho> produtoslista = controllerItemCarrinho.exibir(itemCarrinho);
+
+        for (Carrinho item: venda){
+            int x = 0;
+            System.out.println(item.getCliente().getNome());
+            for (ItemCarrinho items: produtoslista){
+                System.out.println(
+                        produtoslista.get(x).getProduto().getNome() +
+                                " "+ produtoslista.get(x).getProduto().getPreco() +
+                                " x "+ produtoslista.get(x).getQuantidade() +
+                                " =: " + produtoslista.get(x).getQuantidade() * produtoslista.get(x).getProduto().getPreco());
+                x++;
+            }
+        }
     }
 }
