@@ -55,9 +55,14 @@ public abstract class AbstractDAO<E> {
     }
 
     public List exibirDados(E e) {
+<<<<<<< HEAD
 
         EntityManager rm = EMFactory.getInstance().createManager();
         Query query = rm.createQuery("SELECT u FROM " + e.getClass().getSimpleName() + " u", e.getClass());
+=======
+        entityManager =  EMFactory.getInstance().createManager();
+        Query query = entityManager.createQuery("SELECT u FROM " + e.getClass().getSimpleName() + " u", e.getClass());
+>>>>>>> origin/master
         return query.getResultList();
 
     }
