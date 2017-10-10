@@ -21,7 +21,7 @@ public class Carrinho {
     @OneToOne
     private Cliente cliente;
 
-    @OneToMany (cascade = CascadeType.PERSIST)
+    @OneToMany(cascade = CascadeType.PERSIST)
     private List<ItemCarrinho> carrinhoList = new ArrayList<>();
 
     public Carrinho() {
@@ -70,11 +70,11 @@ public class Carrinho {
         this.carrinhoList = carrinhoList;
     }
 
-    public void adicionarItem(ItemCarrinho itemCarrinho){
+    public void adicionarItem(ItemCarrinho itemCarrinho) {
         carrinhoList.add(itemCarrinho);
     }
 
-    public void limparCarrinho(){
+    public void limparCarrinho() {
         carrinhoList.clear();
     }
 }

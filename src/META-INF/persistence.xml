@@ -9,11 +9,8 @@
             <property name="hibernate.connection.password" value=""/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>
             <property name="hibernate.format_sql" value="true"/>
-<<<<<<< HEAD
             <property name="hibernate.show_sql" value="false"/>
-=======
             <property name="hibernate.show_sql" value="true"/>
->>>>>>> origin/master
             <property name="hibernate.hbm2ddl.auto" value="update"/>
         </properties>
     </persistence-unit>

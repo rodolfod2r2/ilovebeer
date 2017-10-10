@@ -30,7 +30,7 @@ public class ItemCarrinho {
         this.id = id;
     }
 
-    @ManyToOne(cascade =  CascadeType.PERSIST)
+    @ManyToOne(cascade = CascadeType.PERSIST)
     public Produto getProduto() {
         return produto;
     }

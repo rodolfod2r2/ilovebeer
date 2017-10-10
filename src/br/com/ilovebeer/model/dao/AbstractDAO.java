@@ -29,7 +29,7 @@ public abstract class AbstractDAO<E> {
     }
 
     public void atualizarDados(E e) {
-        entityManager =  EMFactory.getInstance().createManager();
+        entityManager = EMFactory.getInstance().createManager();
         try {
             entityManager.getTransaction().begin();
             entityManager.merge(e);
@@ -42,7 +42,7 @@ public abstract class AbstractDAO<E> {
     }
 
     public void removerDados(E e, int id) {
-        entityManager =  EMFactory.getInstance().createManager();
+        entityManager = EMFactory.getInstance().createManager();
         try {
             entityManager.getTransaction().begin();
             entityManager.remove(e);
@@ -55,19 +55,12 @@ public abstract class AbstractDAO<E> {
     }
 
     public List exibirDados(E e) {
-<<<<<<< HEAD
 
-        EntityManager rm = EMFactory.getInstance().createManager();
-        Query query = rm.createQuery("SELECT u FROM " + e.getClass().getSimpleName() + " u", e.getClass());
-=======
-        entityManager =  EMFactory.getInstance().createManager();
+        entityManager = EMFactory.getInstance().createManager();
         Query query = entityManager.createQuery("SELECT u FROM " + e.getClass().getSimpleName() + " u", e.getClass());
->>>>>>> origin/master
         return query.getResultList();
 
     }
-
-
 
 
 }

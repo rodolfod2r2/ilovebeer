@@ -4,7 +4,7 @@ import br.com.ilovebeer.model.entity.Fornecedor;
 
 import java.util.List;
 
-public class FornecedorDAO extends AbstractDAO<Fornecedor>{
+public class FornecedorDAO extends AbstractDAO<Fornecedor> {
 
     @Override
     public void salvarDados(Fornecedor fornecedor) {
